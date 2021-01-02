@@ -24,10 +24,8 @@ public class Main {
 
         Board board = new Board(size, pythons, ladders, players);
         Game game = new Game(board, 6);
-        int i = game.makeDice();
-        System.out.println(i);
         game.printBoard();
-        game.moveWithDice(0, 2);
+        game.moveWithDice(0, 3);
         System.out.println("_________________");
         game.printBoard();
 

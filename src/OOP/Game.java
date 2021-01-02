@@ -18,9 +18,11 @@ public class Game {
 
     private void move(int playerNumber, int start, int end){
         Tile endTile = board.mainBoardTiles.get(end);
+
         if (endTile.python != null){
             move(playerNumber, start, endTile.python.end.number);
         }else if (endTile.ladder != null){
+            System.out.println("Ladder is not null");
             move(playerNumber, start, endTile.ladder.end.number);
         }else {
             board.mainBoardTiles.get(start).isOccupied = false;
@@ -33,7 +35,7 @@ public class Game {
         if (board.players.get(playerNumber).occupiedTile == null)
             board.players.get(playerNumber).occupiedTile = board.mainBoardTiles.get(0);
         int currentTileNumber = board.players.get(playerNumber).occupiedTile.number;
-        int toMoveTileNumber = currentTileNumber + diceNumber;
+        int toMoveTileNumber = currentTileNumber + diceNumber - 1;
         System.out.println(toMoveTileNumber);
         move(playerNumber, currentTileNumber, toMoveTileNumber);
     }

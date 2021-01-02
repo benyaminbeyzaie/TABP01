@@ -23,6 +23,7 @@ public class Board {
             int end = Integer.parseInt(strings[1]);
             Python python = new Python(mainBoardTiles.get(start), mainBoardTiles.get(end));
             pythons.add(python);
+
         }
         // create ladders
         for (int i = 0; i < laddersStrings.size(); i++) {
@@ -32,6 +33,7 @@ public class Board {
             int end = Integer.parseInt(strings[1]);
             Ladder ladder = new Ladder(mainBoardTiles.get(start), mainBoardTiles.get(end));
             ladders.add(ladder);
+            mainBoardTiles.get(start).ladder = ladder;
         }
         this.players = players;
     }
